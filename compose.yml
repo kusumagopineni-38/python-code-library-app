@@ -1,0 +1,46 @@
+---
+services:
+  db:
+    image: kusumacloud/updateproject:dbimage
+    deploy:
+      replicas: 3
+    ports:
+      - "3306:3306"
+
+
+  auth_service:
+    image: kusumacloud/updateproject:authimage
+    deploy:
+      replicas: 3
+    ports:
+      - "5001:5001"
+
+
+  book_service:
+    image: kusumacloud/updateproject:bookimage
+    deploy:
+      replicas: 3
+    ports:
+      - "5002:5002"
+
+
+  borrow_service:
+    image:  kusumacloud/updateproject:borrowimage
+    deploy:
+      replicas: 3
+
+    ports:
+      - "5003:5003"
+
+
+  frontend:
+    image:   kusumacloud/updateproject:appimage
+    deploy:
+      replicas: 3
+    ports:
+      - "5000:5000"
+
+
+networks:
+mynet:
+  driver: overlay

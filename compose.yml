@@ -6,6 +6,7 @@ services:
       replicas: 3
     ports:
       - "3306:3306"
+    -mynet  
 
 
   auth_service:
@@ -14,6 +15,7 @@ services:
       replicas: 3
     ports:
       - "5001:5001"
+    -mynet  
 
 
   book_service:
@@ -22,6 +24,7 @@ services:
       replicas: 3
     ports:
       - "5002:5002"
+    -mynet  
 
 
   borrow_service:
@@ -31,6 +34,7 @@ services:
 
     ports:
       - "5003:5003"
+    -mynet  
 
 
   frontend:
@@ -39,6 +43,7 @@ services:
       replicas: 3
     ports:
       - "5000:5000"
+    -mynet  
 
 
 networks:

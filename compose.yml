@@ -1,13 +1,14 @@
----
+version: "3.8"
+
 services:
   db:
     image: kusumacloud/updateproject:dbimage
     deploy:
-      replicas: 3
+      replicas: 1
     ports:
       - "3306:3306"
-    -mynet  
-
+    networks:
+      - mynet
 
   auth_service:
     image: kusumacloud/updateproject:authimage
@@ -15,8 +16,8 @@ services:
       replicas: 3
     ports:
       - "5001:5001"
-    -mynet  
-
+    networks:
+      - mynet
 
   book_service:
     image: kusumacloud/updateproject:bookimage
@@ -24,28 +25,27 @@ services:
       replicas: 3
     ports:
       - "5002:5002"
-    -mynet  
-
+    networks:
+      - mynet
 
   borrow_service:
-    image:  kusumacloud/updateproject:borrowimage
+    image: kusumacloud/updateproject:borrowimage
     deploy:
       replicas: 3
-
     ports:
       - "5003:5003"
-    -mynet  
-
+    networks:
+      - mynet
 
   frontend:
-    image:   kusumacloud/updateproject:appimage
+    image: kusumacloud/updateproject:appimage
     deploy:
       replicas: 3
     ports:
       - "5000:5000"
-    -mynet  
-
+    networks:
+      - mynet
 
 networks:
-mynet:
-  driver: overlay
+  mynet:
+    driver: overlay

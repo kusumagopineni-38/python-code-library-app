@@ -20,7 +20,7 @@ services:
       - mynet
 
   book_service:
-    image:kusumacloud/another:bookimage
+    image: kusumacloud/another:bookimage
     deploy:
       replicas: 3
     ports:

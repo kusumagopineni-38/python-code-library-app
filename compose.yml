@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   db:
-    image: kusumacloud/updateproject:dbimage
+    image: kusumacloud/another:dbimage
     deploy:
       replicas: 1
     ports:
@@ -11,7 +11,7 @@ services:
       - mynet
 
   auth_service:
-    image: kusumacloud/updateproject:authimage
+    image: kusumacloud/another:authimage
     deploy:
       replicas: 3
     ports:
@@ -20,7 +20,7 @@ services:
       - mynet
 
   book_service:
-    image: kusumacloud/updateproject:bookimage
+    image:kusumacloud/another:bookimage
     deploy:
       replicas: 3
     ports:
@@ -29,7 +29,7 @@ services:
       - mynet
 
   borrow_service:
-    image: kusumacloud/updateproject:borrowimage
+    image: kusumacloud/another:borrowimage
     deploy:
       replicas: 3
     ports:
@@ -38,7 +38,7 @@ services:
       - mynet
 
   frontend:
-    image: kusumacloud/updateproject:appimage
+    image: kusumacloud/another:appimage
     deploy:
       replicas: 3
     ports:
